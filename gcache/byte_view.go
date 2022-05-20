@@ -1,21 +1,19 @@
 package gcache
 
-// A ByteView holds an immutable view of bytes.
+// 使数据为只读的
 type ByteView struct {
 	b []byte
 }
 
-// Len returns the view's length
+// 实现value接口
 func (v ByteView) Len() int64 {
 	return int64(len(v.b))
 }
 
-// ByteSlice returns a copy of the data as a byte slice.
 func (v ByteView) ByteSlice() []byte {
 	return cloneBytes(v.b)
 }
 
-// String returns the data as a string, making a copy if necessary.
 func (v ByteView) String() string {
 	return string(v.b)
 }
